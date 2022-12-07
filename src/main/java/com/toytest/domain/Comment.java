@@ -13,7 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Table
+@Table(name = "comments")
 @Entity
 public class Comment {
 

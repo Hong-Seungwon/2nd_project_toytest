@@ -72,3 +72,8 @@ input:invalid {
 }
 
 #img { width: 20px; height: auto; padding-bottom: 4px; }
+
+#posts_list > div.pagination.justify-content-center > a.page {
+    margin: 2px;
+    padding-top: 6px;
+}

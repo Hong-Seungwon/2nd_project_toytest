@@ -37,6 +37,7 @@ public class PostsController {
         }
 
         model.addAttribute("posts", list);
+        model.addAttribute("number", pageable.getPageNumber()+1);
         model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
         model.addAttribute("next", pageable.next().getPageNumber());
         model.addAttribute("hasNext", list.hasNext());

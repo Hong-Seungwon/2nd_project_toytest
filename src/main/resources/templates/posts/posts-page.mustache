@@ -6,6 +6,13 @@
         <a href="?page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill disabled"></a>
     {{/hasPrev}}
 
+    {{#number}}
+       <a class="page">{{number}}</a>
+    {{/number}}
+    {{^number}}
+        {{number}}
+    {{/number}}
+
     {{#hasNext}}
         <a href="?page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill"></a>
     {{/hasNext}}
