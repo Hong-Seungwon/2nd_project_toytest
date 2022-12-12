@@ -27,7 +27,7 @@ public class OAuthAttributes {
     private String email;
     private Role role;
 
-    public static OAuthAttributes of(String registrationId, String userNameAttributeName,
+     public static OAuthAttributes of(String registrationId, String userNameAttributeName,
                                      Map<String, Object> attributes) {
         /* 구글인지 네이버인지 카카오인지 구분하기 위한 메소드 (ofNaver, ofKaKao) */
         if ("naver".equals(registrationId)) {
@@ -55,7 +55,7 @@ public class OAuthAttributes {
         log.info("naver response : " + response);
 
         return OAuthAttributes.builder()
-                .username((String) response.get("email"))
+                .username((String) response.get("name"))
                 .email((String) response.get("email"))
                 .nickname((String) response.get("nickname"))
                 .attributes(response)

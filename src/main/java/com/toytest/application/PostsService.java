@@ -12,7 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -54,7 +53,7 @@ public class PostsService {
     // Delete
     @Transactional
     public void delete(Long id) {
-        Posts posts = postsRepository.findById(id).orElseThrow(() ->
+                Posts posts = postsRepository.findById(id).orElseThrow(() ->
                 new IllegalArgumentException("해당 게시글이 존재하지 않습니다. id=" + id));
         postsRepository.delete(posts);
     }
@@ -77,6 +76,4 @@ public class PostsService {
         Page<Posts> postsList = postsRepository.findByTitleContaining(keyword, pageable);
         return postsList;
     }
-
-
 }

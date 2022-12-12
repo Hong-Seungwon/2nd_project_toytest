@@ -8,7 +8,6 @@ import com.toytest.application.security.auth.LoginUser;
 import com.toytest.domain.Posts;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.bytebuddy.TypeCache;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -18,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -27,7 +27,7 @@ public class PostsController {
     private final PostsService postsService;
 
     // 글 목록
-    @GetMapping("/")                 /* default page = 0, size = 10  */
+    @GetMapping("/")
     public String index(Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC)
             Pageable pageable, @LoginUser UserDto.Response user) {
         Page<Posts> list = postsService.pageList(pageable);
@@ -36,10 +36,13 @@ public class PostsController {
             model.addAttribute("user", user);
         }
 
+        ArrayList pageIndex = new ArrayList();
+        for(int i = 0; i < list.getTotalPages(); i++) pageIndex.add(i+1);
+
         model.addAttribute("posts", list);
-        model.addAttribute("number", pageable.getPageNumber()+1);
-        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
-        model.addAttribute("next", pageable.next().getPageNumber());
+        model.addAttribute("pageIndex", pageIndex);
+        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber()+1);
+        model.addAttribute("next", pageable.next().getPageNumber()+1);
         model.addAttribute("hasNext", list.hasNext());
         model.addAttribute("hasPrev", list.hasPrevious());
 
