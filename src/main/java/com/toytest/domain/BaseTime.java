@@ -14,11 +14,11 @@ import java.time.format.DateTimeFormatter;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 abstract class BaseTime {
-    @Column(name = "created_date", nullable = false)
+    @Column(name = "created_date")
     @CreatedDate
     private String createdDate;
 
-    @Column(name = "modified_date", nullable = false)
+    @Column(name = "modified_date")
     @LastModifiedDate
     private String modifiedDate;
 

@@ -19,7 +19,7 @@ public class User extends BaseTime{
 
     private String password;
 
-    @Column(nullable = false)
+    @Column(nullable = false,  unique = true)
     private String nickname;
 
     @Column(nullable = false, unique = true)
@@ -30,7 +30,7 @@ public class User extends BaseTime{
     private Role role;
 
     /* 회원 정보 수정 */
-    public void update(String password, String nickname){
+    public void modify(String password, String nickname){
         this.password = password;
         this.nickname = nickname;
     }

@@ -36,6 +36,10 @@
             <a href="/posts/search?keyword={{keyword}}&page={{previous}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill disabled"></a>
         {{/hasPrev}}
 
+        {{#pageIndex}}
+            <li  class="btn btn-lg bi bi-caret-square-fill"><a role="button" href="?page={{.}}">{{.}}</a></li>
+        {{/pageIndex}}
+
         {{#hasNext}}
             <a href="/posts/search?keyword={{keyword}}&page={{next}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill"></a>
         {{/hasNext}}

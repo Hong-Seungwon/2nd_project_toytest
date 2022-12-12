@@ -82,10 +82,10 @@ public class PostsController {
             if (comments.stream().anyMatch(s -> s.getUserNo().equals(user.getNo()))) {
                 model.addAttribute("isWriter", true);
             }
-              for (int i = 0; i < comments.size(); i++) {
+ /*             for (int i = 0; i < comments.size(); i++) {
                 boolean isWriter = comments.get(i).getUserNo().equals(user.getNo());
                 model.addAttribute("isWriter",isWriter);
-            }
+            }*/
         }
 
         postsService.updateView(id); // views++
@@ -93,6 +93,7 @@ public class PostsController {
         return "posts/posts-read";
     }
 
+    // 글 수정
     @GetMapping("/posts/update/{id}")
     public String update(@PathVariable Long id, @LoginUser UserDto.Response user, Model model) {
         PostsDto.Response dto = postsService.findById(id);
@@ -104,15 +105,20 @@ public class PostsController {
         return "posts/posts-update";
     }
 
+    // 키워드로 글 검색
     @GetMapping("/posts/search")
     public String search(String keyword, Model model, @PageableDefault(sort = "id", direction = Sort.Direction.DESC)
             Pageable pageable, @LoginUser UserDto.Response user) {
         Page<Posts> searchList = postsService.search(keyword, pageable);
 
+        ArrayList pageIndex = new ArrayList();
+        for(int i = 0; i < searchList.getTotalPages(); i++) pageIndex.add(i+1);
+
         if (user != null) {
             model.addAttribute("user", user);
         }
         model.addAttribute("searchList", searchList);
+        model.addAttribute("pageIndex", pageIndex);
         model.addAttribute("keyword", keyword);
         model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
         model.addAttribute("next", pageable.next().getPageNumber());
