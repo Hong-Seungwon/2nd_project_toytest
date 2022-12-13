@@ -125,13 +125,13 @@ const main = {
         if(!data.nickname || data.nickname.trim() === "" || !data.password || data.password.trim() === "") {
             alert("공백 또는 입력하지 않은 부분이 있습니다.");
             return false;
-        } else if(!/(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\W)(?=\S+$).{8,16}/.test(data.password)) {
-            alert("비밀번호는 8~16자 영문 대/소문자, 숫자, 특수 문자를 사용하세요.");
-            $('#password').focus();
-            return false;
         } else if(!/^[ㄱ-ㅎ가-힣a-zA-Z0-9-_]{2,10}$/.test(data.nickname)) {
             alert("닉네임은 특수 문자를 제외한 2~10자리여야 합니다.");
             $('#nickname').focus();
+            return false;
+        } else if(!/(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\W)(?=\S+$).{8,16}/.test(data.password)) {
+            alert("비밀번호는 8~16자 영문 대/소문자, 숫자, 특수 문자를 사용하세요.");
+            $('#password').focus();
             return false;
         }
         const con_check = confirm("수정하시겠습니까?");
@@ -146,7 +146,7 @@ const main = {
                 alert("회원수정이 완료되었습니다.");
                 window.location.href = "/";
 
-            }).fail(function (error) {
+            }).fail(function (error) { // 중복된 닉네임
                 if (error.status === 500) {
                     alert("이미 사용 중인 닉네임 입니다.");
                     $('#nickname').focus();

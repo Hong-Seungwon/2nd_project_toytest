@@ -29,7 +29,6 @@ public class UserApiController {
         /* 변경된 세션 등록 */
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(dto.getUsername(), dto.getPassword()));
-
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         return new ResponseEntity<>("success", HttpStatus.OK);

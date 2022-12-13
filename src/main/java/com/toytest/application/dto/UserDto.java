@@ -19,7 +19,7 @@ public class UserDto {
     public static class Request {
         private Long no;
 
-        @Pattern(regexp = "^[ㄱ-ㅎ가-힣a-z0-9-_]{4,20}$", message = "아이디는 특수 문자를 제외한 4~20자리여야 합니다.")
+        @Pattern(regexp = "^[ㄱ-ㅎ가-힣a-zA-Z0-9-_]{4,20}$", message = "아이디는 특수 문자를 제외한 4~20자리여야 합니다.")
         @NotBlank(message = "아이디는 필수 입력 값 입니다.")
         private String username;
 
@@ -57,12 +57,12 @@ public class UserDto {
      * 세션 저장용 Dto 클래스 생성 */
     @Getter
     public static class Response implements Serializable {
-        private final Long no;
-        private final String username;
-        private final String nickname;
-        private final String email;
-        private final Role role;
-        private final String modifiedDate;
+        private Long no;
+        private String username;
+        private String nickname;
+        private String email;
+        private Role role;
+        private String modifiedDate;
 
         /* Entity -> Dto */
         public Response(User user){
