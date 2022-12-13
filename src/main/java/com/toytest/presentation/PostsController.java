@@ -41,8 +41,8 @@ public class PostsController {
 
         model.addAttribute("posts", list);
         model.addAttribute("pageIndex", pageIndex);
-        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber()+1);
-        model.addAttribute("next", pageable.next().getPageNumber()+1);
+        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
+        model.addAttribute("next", pageable.next().getPageNumber());
         model.addAttribute("hasNext", list.hasNext());
         model.addAttribute("hasPrev", list.hasPrevious());
 
@@ -111,17 +111,22 @@ public class PostsController {
             Pageable pageable, @LoginUser UserDto.Response user) {
         Page<Posts> searchList = postsService.search(keyword, pageable);
 
-        ArrayList pageIndex = new ArrayList();
-        for(int i = 0; i < searchList.getTotalPages(); i++) pageIndex.add(i+1);
-
         if (user != null) {
             model.addAttribute("user", user);
         }
+
+
+        ArrayList pageIndex = new ArrayList();
+        for(int i = 0; i < searchList.getTotalPages(); i++) pageIndex.add(i+1);
+
+        int previous = pageable.previousOrFirst().getPageNumber()+1;
+        int next = pageable.next().getPageNumber()+1;
+
         model.addAttribute("searchList", searchList);
         model.addAttribute("pageIndex", pageIndex);
         model.addAttribute("keyword", keyword);
-        model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
-        model.addAttribute("next", pageable.next().getPageNumber());
+        model.addAttribute("previous", previous);
+        model.addAttribute("next", next);
         model.addAttribute("hasNext", searchList.hasNext());
         model.addAttribute("hasPrev", searchList.hasPrevious());
 
