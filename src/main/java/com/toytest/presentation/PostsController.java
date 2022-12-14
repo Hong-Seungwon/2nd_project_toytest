@@ -93,6 +93,7 @@ public class PostsController {
 
         postsService.updateView(id); // views++
         model.addAttribute("posts", dto);
+        model.addAttribute("user", user);
         return "posts/posts-read";
     }
 
