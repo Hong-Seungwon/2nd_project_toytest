@@ -63,7 +63,7 @@
 - *JAVA 11 ver.*
 - *Maven 3.6.3*
 - *Tomcat 9.0*
-- *MySQL*
+- *MySQL 8.0*
 - *Mustache*
 - *Javascript*
 - *jQuery*
