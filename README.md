@@ -1,6 +1,12 @@
 # JPA와 Rest API 활용한 게시판
 ## 참고 자료 : 스프링 부트와 AWS로 혼자 구현하는 웹서비스 및 관련 블로그들
 
+# Stack.
+    - Back-End: Java, SpringBoot, Gradle
+    - Front-End: JavaScript, jQuery, HTML/CSS, Bootstrap
+    - DataBase: Oracle
+    - ORM: MyBatis
+
 # 목차
 - [요구사항 분석](#요구사항-분석)
 - [개발 환경](#개발-환경)
