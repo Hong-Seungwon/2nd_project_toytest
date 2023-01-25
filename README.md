@@ -3,6 +3,7 @@
 
 # 목차
 - [요구사항 분석](#요구사항-분석)
+- [ERD](#erd)
 - [개발 환경](#개발-환경)
 - [구현 기능](#구현-기능)
 
@@ -57,6 +58,9 @@
   - 수정 및 삭제는 작성한 아이디만 가능
   - 게시글 삭제 시 댓글 데이터도 같이 삭제
 
+### ERD
+<img width="326" alt="image" src="https://user-images.githubusercontent.com/96768840/214510180-54269398-ff7d-49f8-8ea9-51631fe2b3a1.png">
+
 ### 개발 환경
 - *IntelliJ*
 - *SpringBoot 2.7.6* 
@@ -76,5 +80,47 @@
 
 ### 구현 기능
 #### 1. 게시판 - CRUD 기능, 조회수, 페이징 및 검색 처리
+<details>
+    <summary>메인 페이지</summary>
+<img width="1278" alt="image" src="https://user-images.githubusercontent.com/96768840/214510778-74b1bce5-d070-48c4-9864-fdf3399ac82c.png">
+
+</details> 
+<details>
+    <summary>게시글 조회</summary>
+<img width="1266" alt="image" src="https://user-images.githubusercontent.com/96768840/214512619-4d3b7459-0501-4646-ac1b-a8dcade55af7.png">
+
+</details> 
+<details>
+    <summary>검색 페이지</summary>
+<img width="1280" alt="image" src="https://user-images.githubusercontent.com/96768840/214513407-72279f99-4284-4451-84c6-7bbb28f48c9e.png">
+
+</details> 
+
 #### 2. 사용자 - Security 회원가입 및 로그인, OAuth 2.0(구글, 네이버 로그인), 회원정보 수정, 회원가입 시 유효성 검사 및 중복 검사
-#### 3. 댓글 - CRUD 기능
+<details>
+    <summary>로그인</summary>
+<img width="1268" alt="image" src="https://user-images.githubusercontent.com/96768840/214515760-43088982-fd0b-4ad0-ac31-9c3763e91580.png">
+
+<img width="1259" alt="image" src="https://user-images.githubusercontent.com/96768840/214516254-21affc52-a6a0-45ff-a9a0-3e553e7e6048.png">
+
+</details> 
+<details>
+    <summary>OAuth 2.0</summary>
+<img width="549" alt="image" src="https://user-images.githubusercontent.com/96768840/214515959-8991b125-19df-463e-9823-51711b92c304.png">
+
+<img width="910" alt="image" src="https://user-images.githubusercontent.com/96768840/214516036-7143ecb8-7428-40ac-95cb-0237afc10ae3.png">
+
+</details> 
+<details>
+    <summary>회원정보 수정</summary>
+<img width="1154" alt="image" src="https://user-images.githubusercontent.com/96768840/214517988-83d8b571-8883-45a1-8438-9a097f389e22.png">
+<img width="848" alt="image" src="https://user-images.githubusercontent.com/96768840/214518122-d74e98ae-4770-43c0-a2b9-84829bd112c8.png">
+<img width="1257" alt="image" src="https://user-images.githubusercontent.com/96768840/214518181-43852a0c-839b-43ad-8dd6-c48b952ef22c.png">
+</details> 
+<details>
+    <summary>회원가입(유효성 검사 및 중복 검사)</summary>
+<img width="1164" alt="image" src="https://user-images.githubusercontent.com/96768840/214516840-5bebad36-aca6-4bb2-a930-2ee6be976798.png">
+
+</details> 
+
+#### 3. 댓글 - CRUD 기능 구현 중
