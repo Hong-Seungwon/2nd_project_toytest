@@ -87,7 +87,12 @@
 </details> 
 <details>
     <summary>게시글 조회</summary>
+    
+### 비로그인
 <img width="1266" alt="image" src="https://user-images.githubusercontent.com/96768840/214512619-4d3b7459-0501-4646-ac1b-a8dcade55af7.png">
+
+### 로그인
+<img width="1065" alt="image" src="https://user-images.githubusercontent.com/96768840/214519445-6a055848-30a5-4042-acd2-e8bf53a56fef.png">
 
 </details> 
 <details>
